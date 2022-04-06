@@ -1,4 +1,5 @@
-
+//Recursive
+//Python3
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -17,4 +18,7 @@ class Solution:
             inorder(root.right)
             
         inorder(root)
-        return res
+        return res  
+// Time complexity of this algorithm doing it recursivly : O[n] (need visit every single node)
+// Maximum memorty complexity: O[n] (use stack to store)
+
