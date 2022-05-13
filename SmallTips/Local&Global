@@ -1,0 +1,111 @@
+Global variables are those which are not defined inside any function and have a global scope whereas local variables are those which are defined inside a function and its scope is limited to that function only. In other words, we can say that local variables are accessible only inside the function in which it was initialized whereas the global variables are accessible throughout the program and inside every function. 
+
+Local Variables
+Local variables are those which are initialized inside a function and belongs only to that particular function. It cannot be accessed anywhere outside the function. Let’s see how to create a local variable.
+
+Example: Creating local variables
+
+
+def f():
+     
+    # local variable
+    s = "I love Geeksforgeeks"
+    print(s)
+ 
+# Driver code
+f()
+Output
+I love Geeksforgeeks
+If we will try to use this local variable outside the function then let’s see what will happen.
+
+Example:
+
+
+def f():
+     
+    # local variable
+    s = "I love Geeksforgeeks"
+    print("Inside Function:", s)
+ 
+# Driver code
+f()
+print(s)
+Output
+
+NameError: name 's' is not defined
+Global Variables
+The global variables are those which are defined outside any function and which are accessible throughout the program i.e. inside and outside of every function Let’s see how to create a global variable.
+
+Example: Defining and accessing global variables
+
+
+# This function uses global variable s
+def f():
+    print("Inside Function", s)
+ 
+# Global scope
+s = "I love Geeksforgeeks"
+f()
+print("Outside Function", s)
+Output
+Inside Function I love Geeksforgeeks
+Outside Function I love Geeksforgeeks
+The variable s is defined as the global variable and is used both inside the function as well as outside the function.
+
+Note: As there are no locals, the value from the globals will be used.
+
+Now, what if there is a variable with the same name initialized inside a function as well as globally. Now the question arises, will the local variable will have some effect on the global variable or vice versa, and what will happen if we change the value of variable inside of the function f()? Will it affect the globals as well? We test it in the following piece of code: 
+
+
+# This function has a variable with
+# name same as s.
+def f():
+    s = "Me too."
+    print(s)
+ 
+# Global scope
+s = "I love Geeksforgeeks"
+f()
+print(s)
+Output: 
+
+Me too.
+I love Geeksforgeeks.
+If a variable with the same name is defined inside the scope of function as well then it will print the value given inside the function only and not the global value. 
+
+The question is, what if we try to change the value of a global variable inside the function. Let’s see it using the below example.
+
+Example: 
+
+
+# This function uses global variable s
+def f():
+    s += 'GFG'
+    print("Inside Function", s)
+ 
+# Global scope
+s = "I love Geeksforgeeks"
+f()
+Output
+
+UnboundLocalError: local variable 's' referenced before assignment
+To make the above program work, we need to use the “global” keyword. Let’s see what this global keyword is.
+
+Global Keyword
+We only need to use the global keyword in a function if we want to do assignments or change the global variable. global is not needed for printing and accessing. Python “assumes” that we want a local variable due to the assignment to s inside of f(), so the first statement throws the error message. Any variable which is changed or created inside of a function is local if it hasn’t been declared as a global variable. To tell Python, that we want to use the global variable, we have to use the keyword “global”, as can be seen in the following example: 
+
+Example 1: Using global keyword
+
+
+# This function modifies the global variable 's'
+def f():
+    global s
+    s += ' GFG'
+    print(s)
+    s = "Look for Geeksforgeeks Python Section"
+    print(s)
+ 
+# Global Scope
+s = "Python is great!"
+f()
+print(s)
