@@ -21,3 +21,8 @@ class Solution:
             
         return(root, 0)///*****    
         
+        ------time complexity: O(n)
+        ------space complextiy: O(n) or O(logn)(if it's a balanced tree)
+        
+        *****It's not a binary search tree so the value of left children don't need to be smaller than the parent node's value
+        
