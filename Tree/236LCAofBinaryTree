@@ -13,14 +13,14 @@ class Solution:
         if not node:
             return None
         if node.val == p.val or node.val == q.val:
-            return node
+            return node//***************base case: the least thing that each node should do 
         
         left = self.helper(node.left, p, q)
         right = self.helper(node.right, p, q)
         
-        if not left:
+        if not left://******************not in the base case, it is the next step after each node has processed the base case
             return right
         if not right:
-            return left
+            return left//************4 scenerios:n/n; left/n; n/right; left/right
         
-        return node
+        return node( the root of the left(subtree) and right(subtree))
