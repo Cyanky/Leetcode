@@ -22,3 +22,8 @@ class Solution:
             return root.val + max(leftmax, rightmax)//------------to calculate the sum without spliting( leftmax, rightmax must without spliting, so they can be add to a path)
         dfs(root)
         return res[0]
+        
+        
+        
+        ------------time complecity: O(N)
+        ------------space complexctiy: O(logn) (The hight of the tree, each node only need to store left.max ***or*** right.max)
