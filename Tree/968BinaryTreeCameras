@@ -27,3 +27,5 @@ class Solution:
         if not monitor:
             return self.output +1 ///-------the root doesn't have a parent node, it has to be put on a camera
         return self.output
+------------t c: O(N)
+------------p c: O(N)
