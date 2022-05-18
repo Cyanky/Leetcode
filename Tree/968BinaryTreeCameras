@@ -1,0 +1,29 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minCameraCover(self, root: Optional[TreeNode]) -> int:
+        self.output = 0
+        def dfs(node):
+            if not node://------------the parent node will be a leaf node, it's more efficient to put a camera on the parent node of the leaf node rather than putting camera on the leaf node
+                return False, True
+            camera_left, monitor_left = dfs(node.left)
+            camera_right, monitor_right = dfs(node.right)
+
+            camera, monitor = False, False
+            if camera_left or camera_right:
+                monitor = True
+            if not monitor_left or not monitor_right:
+                camera = True
+                self.output += 1
+                monitor = True
+
+            return camera, monitor
+
+        camera, monitor = dfs(root)
+        if not monitor:
+            return self.output +1 ///-------the root doesn't have a parent node, it has to be put on a camera
+        return self.output
