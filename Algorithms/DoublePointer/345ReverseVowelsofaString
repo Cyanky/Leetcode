@@ -1,0 +1,15 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = "aeior"
+        string = list(s)//*************don't forget to turn the string into a list
+        i, j = 0, len(s) - 1
+        while i < j:
+            if string[i].lower() not in vowels:
+                i += 1
+            elif string[j].lower() not in vowels://*****************to use elif rather than if: process only one insturction one time in the roop
+                j -= 1
+            else:
+                string[i], string[j] = string[j], string[i]//***********it must present the situation that both of the l and r are vowels, if we use if on the forehand situation, then when one of the side is vowels, the alphabets of the two pointers will reverse 
+                i += 1
+                j -= 1
+        return "".join(string)
