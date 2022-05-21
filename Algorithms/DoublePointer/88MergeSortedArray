@@ -9,8 +9,10 @@ class Solution:
             else:
                 nums1[last] = nums2[n - 1]
                 n -= 1
-            last -= 1
+            last -= 1/////*****************
 
-        while n > 0:
+        while n > 0://***************when there's no more integer in nums1 but still in the nums2
             nums1[last] = nums2[n - 1]
             n, last = n - 1, last - 1
+            
+            ---------------O(N) O(1)
