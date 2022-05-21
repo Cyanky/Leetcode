@@ -1,0 +1,22 @@
+class Solution:
+    def findLongestWord(self, s: str, dictionary: List[str]) -> str:
+        # sort our dictionary
+        d = dictionary
+        d.sort(key = lambda x: (-len(x),x)) //*********sorted by descending length and lexicographical order
+        
+        # find subsequence
+        def helper(sub ,whole):
+            N, M = len(sub), len(whole)
+            i, j = 0, 0
+            while j < M and i < N:
+                if sub[i] == whole[j]:
+                    i += 1
+                j += 1
+            return i == N
+        
+        #loop helper
+        output = ""
+        for w in d:
+            if helper(w, s):
+                return w
+        return output
