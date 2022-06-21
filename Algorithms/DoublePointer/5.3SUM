@@ -29,3 +29,7 @@ class Solution {
         return result;
     }
 }
+
+-----------------------------------------
+TC: O(n^2) (two loops)
+SC: O(1) ("result")
