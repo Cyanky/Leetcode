@@ -23,11 +23,6 @@ Space: O(1)
 
 
 
-
-
-
-
-
 class Solution {
     public int removeElement(int[] nums, int val) {
         if (nums.length == 0 || nums == null) return 0;
@@ -46,3 +41,23 @@ class Solution {
 ------------------------------------------
 Time: O(N)
 Space: O(1)
+
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int leftIndex = 0;
+        int rightIndex = nums.length - 1;
+        while (leftIndex <= rightIndex){
+            while(leftIndex <= rightIndex && nums[leftIndex] != val){
+                leftIndex ++;
+            }
+            while(leftIndex <= rightIndex && nums[rightIndex] == val){
+                rightIndex --;
+            }
+            if (leftIndex < rightIndex){
+            nums[leftIndex++] = nums[rightIndex--];
+            }
+        }
+        return leftIndex;
+    }
+}
