@@ -28,3 +28,20 @@ class Solution {
 --------------------------
 Time: O(n)
 Space: O(1)
+--------------------------
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        return reverse(null, head);
+    }
+    
+    private ListNode reverse(ListNode prev, ListNode cre){
+        if(cre == null){
+            return prev;
+        }
+        ListNode temp = null;
+        temp = cur.next;
+        cur.next = prev;
+        
+        return reverse(cur, temp);
+    }
+}
