@@ -30,3 +30,26 @@ class Solution {
 
 --------------------------------------
 Time = O(N)
+--------------------------------------
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n){
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        while(n-- > 0){
+            fast = fast.next;
+        }
+        ListNode prev = null;
+        while(fast != null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        prev.next = slow.next;
+        
+        return dummy.next;
+    }
+}
